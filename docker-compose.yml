@@ -1,0 +1,11 @@
+version: "3"
+
+services:
+    inference-server:
+        build:
+            context: ./
+            dockerfile: ./Dockerfile
+        image: martinbrianinfante/ml-houses-api
+        ports:
+            - "5000:5000"  # Exposes the container port 5000 to the host
+
