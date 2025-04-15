@@ -2,12 +2,12 @@ This document will provide instructions for starting and stopping the inference 
 Examples of how to make requests to your inference server will also be provided.
 
 Required files:
-- Dockerfile
-- docker-compose.yml
-- api.py
-- /models
-    - alt_lenet.keras
-- /data
+    - Dockerfile
+    - docker-compose.yml
+    - api.py
+    - /models
+        - alt_lenet.keras
+    - /data
 
 Once files have been downloaded to your repository, run:
     docker-compose up
@@ -25,13 +25,16 @@ This will start the inference server on port 5000. To test a request from infere
 
 
 There are two api endpoints in our server:
+        
     '/summary'
         - GET request, returns metadata about the model in JSON format
-
+        
     '/inference'
         - POST request, accepting a binary payload message as input, returns JSON formatted "prediction" with values "damage" or "no_damaged"
         - Endpoint uses flask.Request.files to handle file upload, expecting payload in "image" field
         - Data will be preprocessed to fit parameters that alt_lenet.keras model was trained on
+
+    
         
         
 
